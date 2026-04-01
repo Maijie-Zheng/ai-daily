@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔬 AI 情报日报 · 2026-04-01</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .card-animate { animation: fadeIn 0.6s ease-out forwards; opacity: 0; }
+    .card-animate:nth-child(1) { animation-delay: 0.1s; }
+    .card-animate:nth-child(2) { animation-delay: 0.2s; }
+    .card-animate:nth-child(3) { animation-delay: 0.3s; }
+    .card-animate:nth-child(4) { animation-delay: 0.4s; }
+    .card-animate:nth-child(5) { animation-delay: 0.5s; }
+    .card-animate:nth-child(6) { animation-delay: 0.6s; }
+    .card-animate:nth-child(7) { animation-delay: 0.7s; }
+    .card-animate:nth-child(8) { animation-delay: 0.8s; }
+    .news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+    .news-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .gradient-title { background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .nav-btn:hover { transform: scale(1.04); }
+    .nav-btn { transition: transform 0.2s; }
+    .tag { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- 顶部 Header -->
+  <header class="bg-white border-b border-gray-100 sticky top-0 z-10 shadow-sm">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold gradient-title">🔬 AI 情报日报</h1>
+        <p class="text-xs text-gray-400 mt-0.5">2026年4月1日 · 星期三</p>
+      </div>
+      <div class="text-right">
+        <span class="inline-block bg-indigo-50 text-indigo-600 text-xs font-medium px-3 py-1 rounded-full">每日 7:00 推送</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 分类导航 -->
+  <nav class="bg-white border-b border-gray-100">
+    <div class="max-w-2xl mx-auto px-4 py-3 flex gap-3 overflow-x-auto scrollbar-hide">
+      <a href="#ai4s" class="nav-btn flex-shrink-0 flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-sm font-medium px-4 py-2 rounded-full">🧬 AI4S 前沿</a>
+      <a href="#agent" class="nav-btn flex-shrink-0 flex items-center gap-1.5 bg-violet-50 text-violet-700 border border-violet-200 text-sm font-medium px-4 py-2 rounded-full">🤖 Agent 进化</a>
+      <a href="#models" class="nav-btn flex-shrink-0 flex items-center gap-1.5 bg-blue-50 text-blue-700 border border-blue-200 text-sm font-medium px-4 py-2 rounded-full">🚀 模型动态</a>
+      <a href="#industry" class="nav-btn flex-shrink-0 flex items-center gap-1.5 bg-amber-50 text-amber-700 border border-amber-200 text-sm font-medium px-4 py-2 rounded-full">📊 产业情报</a>
+    </div>
+  </nav>
+
+  <!-- 主体内容 -->
+  <main class="max-w-2xl mx-auto px-4 py-6 space-y-8">
+
+    <!-- AI4S 前沿 -->
+    <section id="ai4s">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl">🧬</span>
+        <h2 class="text-lg font-bold text-gray-800">AI for Science 前沿</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-emerald-200 to-transparent ml-2"></div>
+      </div>
+      <div class="space-y-4">
+
+        <!-- 卡片 1 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">AI 天气预报模型能可靠预测极端天气吗？牛津科学家提出 AIRWIE 协议</h3>
+            <span class="tag bg-emerald-50 text-emerald-700 flex-shrink-0">🌩️ 气象预报</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            《Nature》最新评论指出：AI 天气模型速度领先传统物理模型 2 小时，但对"前所未有"的极端天气事件预测能力存疑。牛津大学研究团队提出 <strong>AIRWIE 协议</strong>——刻意从训练集中剔除标志性极端事件，以此构建客观统一的测试基准，确保 AI 模型在业务化前通过严格评估。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">Nature · 2026.03.16</span>
+              <span class="tag bg-gray-100 text-gray-500">牛津大学</span>
+            </div>
+            <a href="https://www.nature.com/articles/d41586-026-00842-z" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+        <!-- 卡片 2 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">AI 重塑药物发现：2026 已不是实验阶段，靶点识别与分子生成全面落地</h3>
+            <span class="tag bg-blue-50 text-blue-700 flex-shrink-0">💊 药物研发</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            PDA 与多家行业机构综合报告显示：AI 在药物发现的靶点识别、先导化合物筛选、临床试验优化等全流程已进入规模化应用阶段。GNN（图神经网络）在分子性质预测上的准确性大幅超越传统方法，Lila Sciences 等公司基于 AI 的材料与药物发现平台正从"Demo"走向商业交付。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">PDA · 2026.02.20</span>
+              <span class="tag bg-gray-100 text-gray-500">产业报告</span>
+            </div>
+            <a href="https://www.pda.org/pda-letter-portal/home/full-article/the-ai-revolution-in-drug-discovery" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+        <!-- 卡片 3 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">AI 驱动蛋白质设计革命：Nature Reviews 综述新工程范式</h3>
+            <span class="tag bg-teal-50 text-teal-700 flex-shrink-0">🔬 蛋白质</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            《Nature Reviews Drug Discovery》深度综述了 AI 驱动蛋白质设计的最新范式转变。从 AlphaFold3 到 RFdiffusion，AI 使研究者能够"从头设计"具有特定功能的蛋白质，而非仅仅预测自然界中已有的结构，为酶工程、纳米医学和生物材料开辟全新可能。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">Nature Reviews · 2025.09</span>
+              <span class="tag bg-gray-100 text-gray-500">综述</span>
+            </div>
+            <a href="https://www.nature.com/articles/s44222-025-00349-8" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Agent 进化 -->
+    <section id="agent">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl">🤖</span>
+        <h2 class="text-lg font-bold text-gray-800">AI Agent 进化追踪</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-violet-200 to-transparent ml-2"></div>
+      </div>
+      <div class="space-y-4">
+
+        <!-- 卡片 4 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">2026 多智能体架构全景：分层协同、分布式记忆、守护 Agent 三大趋势并行</h3>
+            <span class="tag bg-violet-50 text-violet-700 flex-shrink-0">🏗️ Agent 架构</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            arXiv 综述论文系统梳理了 2026 年多智能体 LLM 系统的最新架构演进：<strong>动态角色切换</strong>（规划者/执行者/评审者）减少人工预设；<strong>分布式记忆网络</strong>支持跨 Agent 状态共享；<strong>Guardrail Agent</strong> 提供实时行为监测。CrewAI 2.0、AutoGen Studio、LangGraph Enterprise 等平台正在企业级落地。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">arXiv · 2026.01.06</span>
+              <span class="tag bg-gray-100 text-gray-500">多智能体</span>
+            </div>
+            <a href="https://arxiv.org/html/2601.01743v1" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+        <!-- 卡片 5 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">Liquid AI 发布 LFM2.5-350M：2780 亿 token 训练的 3.5 亿参数高效小模型</h3>
+            <span class="tag bg-pink-50 text-pink-700 flex-shrink-0">⚡ 高效模型</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            Liquid AI 今日发布 <strong>LFM2.5-350M</strong>，仅 3.5 亿参数，但在 28 万亿个 token 上完成训练，并引入缩放强化学习（Scaled RL）。该模型在边缘部署场景下性能远超同参数量级基线，直接挑战"参数规模即智能"的传统认知，为 on-device Agent 应用带来新可能。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">llm-stats.com · 今日</span>
+              <span class="tag bg-gray-100 text-gray-500">Liquid AI</span>
+            </div>
+            <a href="https://llm-stats.com/ai-news" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 模型动态 -->
+    <section id="models">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl">🚀</span>
+        <h2 class="text-lg font-bold text-gray-800">今日模型动态</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-blue-200 to-transparent ml-2"></div>
+      </div>
+      <div class="space-y-4">
+
+        <!-- 卡片 6 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">Google 发布 Veo 3.1 Lite：为开发者打造低成本高速视频生成层</h3>
+            <span class="tag bg-blue-50 text-blue-700 flex-shrink-0">🎬 视频生成</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            Google AI 今日通过 Gemini API 上线 <strong>Veo 3.1 Lite</strong>，定位于生产级部署的"经济层"——保留核心视频生成质量，大幅降低推理成本与延迟，解决此前 Veo 系列在规模化 API 调用中的价格瓶颈，向 Sora/Kling 等竞争者直接发起商业挑战。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">llm-stats.com · 今日</span>
+              <span class="tag bg-gray-100 text-gray-500">Google AI</span>
+            </div>
+            <a href="https://llm-stats.com/ai-news" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+        <!-- 卡片 7 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">GPT-5.4 / Gemini 3.1 / Claude 4.6：3 月模型军备竞赛全景回顾</h3>
+            <span class="tag bg-orange-50 text-orange-700 flex-shrink-0">📈 模型竞争</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            3 月 AI 厂商激烈竞速：OpenAI 两天内连发 GPT-5.3 与 GPT-5.4，Coding 与 Agentic 子指标领先；Google Gemini 3.1 强化多模态推理；Anthropic Claude 4.6 在长文档处理上表现突出。四月预计仍将延续高频发布节奏，关注 Gemini 3.2 与 o3-pro 的对决。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">Renovate QR · 2026.03.18</span>
+            </div>
+            <a href="https://renovateqr.com/blog/ai-model-releases-2026" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 产业情报 -->
+    <section id="industry">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl">📊</span>
+        <h2 class="text-lg font-bold text-gray-800">产业情报</h2>
+        <div class="flex-1 h-px bg-gradient-to-r from-amber-200 to-transparent ml-2"></div>
+      </div>
+      <div class="space-y-4">
+
+        <!-- 卡片 8 -->
+        <div class="news-card card-animate bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+          <div class="flex items-start justify-between gap-3 mb-3">
+            <h3 class="text-base font-semibold text-gray-900 leading-snug flex-1">OpenAI 月收入达 20 亿美元，企业客户占比超 40%；百度机器人出租车武汉故障引关注</h3>
+            <span class="tag bg-amber-50 text-amber-700 flex-shrink-0">💰 产业动态</span>
+          </div>
+          <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+            <strong>OpenAI</strong> 宣布月营收突破 20 亿美元，企业客户贡献超 40%，预计年底企业与消费者营收持平——说明 AI ToB 落地进入收获期。与此同时，<strong>百度</strong>在武汉的机器人出租车因疑似系统故障大规模停摆，引发乘客被困事件，自动驾驶商业化安全挑战再引行业讨论。Grab 与 WeRide 合作在新加坡推出东南亚首个无人驾驶网约车服务。
+          </p>
+          <div class="flex items-center justify-between">
+            <div class="flex gap-2 flex-wrap">
+              <span class="tag bg-gray-100 text-gray-500">llm-stats.com · 今日</span>
+            </div>
+            <a href="https://llm-stats.com/ai-news" target="_blank" class="flex-shrink-0 text-sm text-indigo-600 font-medium hover:text-indigo-800 transition-colors">阅读原文 →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部 Footer -->
+  <footer class="bg-white border-t border-gray-100 mt-8">
+    <div class="max-w-2xl mx-auto px-4 py-6 text-center">
+      <p class="text-xs text-gray-400">每日 7:00 自动推送 · 数据来源：arXiv / Nature / llm-stats.com / 官方博客</p>
+      <p class="text-xs text-gray-300 mt-1">🔬 AI 情报日报 · 2026年4月1日</p>
+    </div>
+  </footer>
+
+
+    <!-- 历史导航 -->
+    <section class="mb-6">
+      <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="text-base">📅</span>
+          <h4 class="text-xs font-semibold text-gray-600">历史回顾</h4>
+          <span class="ml-auto text-xs text-gray-400">共2天</span>
+        </div>
+        <div class="grid grid-cols-2 gap-1 max-h-64 overflow-y-auto">
+          
+          <a href="ai-daily-2026-04-01.html" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-gray-50 transition bg-indigo-50 border border-indigo-200">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700">4月1日</span>
+              <span class="text-xs text-gray-400">周三</span>
+            </div>
+            <span class="bg-red-100 text-red-600 text-[10px] px-1.5 py-0.5 rounded-full">今天</span>
+          </a>
+          <a href="ai-daily-2026-03-31.html" class="flex items-center justify-between px-3 py-2 rounded-xl hover:bg-gray-50 transition ">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-gray-700">3月31日</span>
+              <span class="text-xs text-gray-400">周二</span>
+            </div>
+            
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
