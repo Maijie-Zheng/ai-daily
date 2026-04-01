@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 AI 情报日报 · 2026年3月31日</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap');
+  body { font-family: 'Noto Sans SC', sans-serif; background: #ffffff; }
+  .card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(99, 102, 241, 0.12); }
+  .fade-in { animation: fadeIn 0.6s ease-out forwards; opacity: 0; }
+  @keyframes fadeIn { to { opacity: 1; } }
+  .gradient-text { background: linear-gradient(135deg, #4f46e5, #7c3aed, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 9999px; font-size: 12px; font-weight: 500; }
+  .tag-ai4s { background: rgba(52, 211, 153, 0.12); color: #059669; }
+  .tag-agent { background: rgba(99, 102, 241, 0.12); color: #4f46e5; }
+  .tag-industry { background: rgba(251, 191, 36, 0.12); color: #d97706; }
+  a.read-more { transition: all 0.2s; }
+  a.read-more:hover { background: rgba(99, 102, 241, 0.15); }
+  .nav-btn { transition: all 0.2s; }
+  .nav-btn:hover { transform: scale(1.05); }
+  .glow-line { height: 1px; background: linear-gradient(90deg, transparent, #e5e7eb, transparent); }
+</style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-gray-200">
+    <div class="max-w-lg mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-lg font-bold gradient-text">🚀 AI 情报日报</h1>
+          <p class="text-xs text-gray-500 mt-0.5">2026年3月31日 · 星期二</p>
+        </div>
+        <div class="text-xs text-gray-600 bg-gray-100 px-2 py-1 rounded-full">📡 每日7:00</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-lg mx-auto px-4 py-4 space-y-3">
+
+    <!-- Navigation -->
+    <div class="flex gap-2 fade-in" style="animation-delay: 0.1s">
+      <a href="#ai4s" class="nav-btn flex-1 text-center py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium">
+        🧬 AI4S 前沿
+      </a>
+      <a href="#agent" class="nav-btn flex-1 text-center py-2 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 text-sm font-medium">
+        🤖 Agent 进化
+      </a>
+    </div>
+
+    <!-- ============ AI4S Section ============ -->
+    <section id="ai4s">
+      <div class="flex items-center gap-2 py-2 fade-in" style="animation-delay: 0.15s">
+        <div class="w-1 h-5 bg-emerald-500 rounded-full"></div>
+        <h2 class="text-base font-bold text-emerald-700">AI4S 前沿进展</h2>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.2s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🧪 Latent-Y：AI全自主设计抗体药物，速度提升56倍</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          从"文本描述"到"经实验室验证的候选抗体"，全流程无需人工介入，周期从数周压缩至数小时。背后来自 AlphaFold 团队成员创立的 Latent Labs，Jeff Dean 亲自背书。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-ai4s">💊 药物研发</span>
+          <a href="https://briefglance.com/articles/latent-y-ai-agent-designs-new-drugs-autonomously-from-text" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.25s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🌪️ HVR-Met：多智能体"假设-验证-重规划"框架用于极端天气诊断</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          把 Agent 的 Planning-Loop 首次引入气象领域，能自动识别异常气象信号并迭代推理，填补现有气象AI"只能预测、无法诊断"的空白。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-ai4s">🌦️ 气象AI</span>
+          <a href="https://arxiv.org/abs/2603.01121" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.3s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🌍 Nature：AI气候模型能可靠预测极端天气吗？</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          《Nature》发出"警告"——在更严格的压力测试完成前，不建议气象机构大规模推广AI预报，推动了对AI气象模型评估体系的标准化讨论。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-ai4s">📰 期刊评论</span>
+          <a href="https://www.nature.com/articles/d41586-026-00842-z" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.35s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">♻️ Nature Reviews Materials：AI驱动可持续材料与循环经济</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          AI已能横跨"材料性能 + 生命周期评估 + 可持续指标"三维度，把材料创新从线性模式推向闭环循环经济，钙钛矿太阳能电池和可降解塑料替代品是核心方向。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-ai4s">🔬 材料科学</span>
+          <a href="https://www.nature.com/articles/s41578-026-00912-8" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.4s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">💊 AI Agent药物发现应用综述（3月最新）</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          AI Agent正从"辅助工具"进化为"自主研究员"，能独立完成靶点识别→虚拟筛选→ADMET预测→候选分子生成的完整研发闭环。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-ai4s">💊 药物研发</span>
+          <a href="https://www.sciencedirect.com/science/article/pii/S1359644626000553" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="glow-line my-2"></div>
+
+    <!-- ============ Agent Section ============ -->
+    <section id="agent">
+      <div class="flex items-center gap-2 py-2 fade-in" style="animation-delay: 0.45s">
+        <div class="w-1 h-5 bg-indigo-500 rounded-full"></div>
+        <h2 class="text-base font-bold text-indigo-700">🤖 Agent 进化</h2>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.5s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🏆 ARC-AGI-3：史上最难Agent基准登场，顶级AI得分 &lt;1%</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          全新交互式基准——AI必须在"没有说明书"的抽象环境中自主探索、推断目标、规划行动。人类通过率100%，当前最强AI不足1%。引入Agent框架后得分从0%→36%。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-agent">📐 基准测试</span>
+          <a href="https://arxiv.org/abs/2603.24621" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.55s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🤖 华为 ROS-LLM：开源具身智能框架，动嘴即可指挥机器人</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          连接LLM与机器人操作系统(ROS)的完整开源框架，支持自动代码生成、行为树执行、模仿学习自扩展，已在"12步煮咖啡"等复杂任务上验证，发表于 Nature Machine Intelligence。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-agent">🦾 具身智能</span>
+          <a href="https://www.nature.com/articles/s42256-026-01186-z" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.6s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🎙️ Qwen3.5-Omni：通义全感官AI发布，215项SOTA</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          支持文本+图像+音频+音视频的原生多模态大模型，256K上下文、113种语言语音识别、实时语义打断，全模态任务上全面超越 Gemini-3.1 Pro。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-agent">🎙️ 多模态</span>
+          <a href="https://www.yiboot.com/article/userguide/qwen3-5-omni-01.html" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.65s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🧠 LLM Agent Memory 统一分类体系综述</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          将Agent记忆系统按"形式-功能-动态"三维度解耦，提出超越RAG的下一代记忆架构，覆盖2022-2026年全部主流方案，是Agent Memory领域最全面的综述。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-agent">🧠 Agent记忆</span>
+          <a href="https://www.preprints.org/manuscript/202603.0359/v2" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.7s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">⚙️ OpenAI GPT-5.4系列：Agentic工作流专项优化</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          GPT-5.4/mini/nano三档产品专为"子Agent协作"设计，强调工具使用可靠性和专业办公任务执行，推理成本较前代下降40%。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-industry">🏢 产品发布</span>
+          <a href="https://www.aicritique.org/us/2026/03/31/ai-development-in-march-2026/" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="card bg-white border border-gray-200 rounded-2xl p-4 mb-3 fade-in" style="animation-delay: 0.75s">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <h3 class="text-sm font-bold text-gray-900 leading-snug">🖥️ Arm 发布 AGI CPU：专为智能体推理打造的芯片</h3>
+        </div>
+        <p class="text-xs text-gray-600 leading-relaxed mb-3">
+          Arm 首次直销数据中心芯片，新架构专为Agentic AI推理的"预填充-解码分离"需求优化，定位是LLM推理基础设施协调层的"大脑"。
+        </p>
+        <div class="flex items-center justify-between">
+          <span class="tag tag-industry">💼 芯片基建</span>
+          <a href="https://www.aicritique.org/us/2026/03/31/ai-development-in-march-2026/" target="_blank" class="read-more text-xs text-indigo-600 flex items-center gap-1 bg-indigo-50 px-3 py-1 rounded-full hover:bg-indigo-100">
+            阅读原文 <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="glow-line my-2"></div>
+
+    <!-- Quick Glance Table -->
+    <section class="fade-in" style="animation-delay: 0.8s">
+      <div class="flex items-center gap-2 py-2">
+        <div class="w-1 h-5 bg-amber-500 rounded-full"></div>
+        <h2 class="text-base font-bold text-amber-700">📊 行业速览</h2>
+      </div>
+      <div class="bg-white border border-gray-200 rounded-2xl p-3 space-y-2">
+        <div class="flex items-start gap-2 text-xs">
+          <span class="text-blue-600 shrink-0">🔵</span>
+          <div><span class="text-gray-900 font-medium">Anthropic Claude</span><span class="text-gray-600"> — 企业级Agent控制升级：计算机使用、跨App上下文共享</span></div>
+        </div>
+        <div class="flex items-start gap-2 text-xs">
+          <span class="text-green-600 shrink-0">🟢</span>
+          <div><span class="text-gray-900 font-medium">Google Gemini 3.1</span><span class="text-gray-600"> — Flash Live实时音频模型上线，集成音频水印溯源技术</span></div>
+        </div>
+        <div class="flex items-start gap-2 text-xs">
+          <span class="text-red-600 shrink-0">🔴</span>
+          <div><span class="text-gray-900 font-medium">Meta</span><span class="text-gray-600"> — 德州数据中心扩建至100亿美元/1GW，AI算力军备赛继续</span></div>
+        </div>
+        <div class="flex items-start gap-2 text-xs">
+          <span class="text-yellow-600 shrink-0">🟡</span>
+          <div><span class="text-gray-900 font-medium">ARC-AGI-3 首日</span><span class="text-gray-600"> — 引入Agent Harness框架，得分从0%飙至36%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's Insight -->
+    <section class="fade-in" style="animation-delay: 0.85s">
+      <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-2xl p-4 mt-3">
+        <p class="text-xs text-indigo-700 font-medium mb-1">💡 今日洞察</p>
+        <p class="text-xs text-gray-700 leading-relaxed">
+          3月最大信号是 <span class="text-indigo-700 font-medium">"Agentic AI"从概念走向落地评测</span> —— ARC-AGI-3的出现意味着行业开始认真测量Agent的真实能力边界。AI4S侧，Latent-Y标志着"AI自主科研员"时代正式开启。
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-lg mx-auto px-4 py-6 mt-4">
+    <div class="glow-line mb-4"></div>
+    <p class="text-center text-xs text-gray-600">
+      📡 每日7:00自动推送<br>
+      数据来源：arXiv / Nature / 官方博客
+    </p>
+  </footer>
+
+</body>
+</html>
