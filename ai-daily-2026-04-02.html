@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 日报 · 2026-04-02</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: #f0f4f8;
+      color: #1a202c;
+    }
+
+    /* 顶部 Hero */
+    .hero {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 40%, #06b6d4 100%);
+      padding: 2.5rem 1.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+
+    /* 分类标签导航 */
+    .nav-scroll {
+      display: flex;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding: 1rem 1.25rem;
+      scrollbar-width: none;
+      background: #fff;
+      border-bottom: 1px solid #e8edf3;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .nav-scroll::-webkit-scrollbar { display: none; }
+
+    .nav-btn {
+      flex-shrink: 0;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+    .nav-ai4s  { background: #ede9fe; color: #7c3aed; border-color: #c4b5fd; }
+    .nav-ai4s:hover  { background: #ddd6fe; }
+    .nav-agent { background: #dcfce7; color: #16a34a; border-color: #86efac; }
+    .nav-agent:hover { background: #bbf7d0; }
+    .nav-industry { background: #fef3c7; color: #b45309; border-color: #fcd34d; }
+    .nav-industry:hover { background: #fde68a; }
+    .nav-all  { background: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
+    .nav-all:hover  { background: #bae6fd; }
+
+    /* 卡片动画 */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.25s cubic-bezier(.4,0,.2,1);
+      animation: fadeInUp 0.4s ease both;
+      border: 1px solid #f0f4f8;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.11);
+      transform: translateY(-2px);
+      border-color: #e2e8f0;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      border-radius: 16px 0 0 16px;
+    }
+    .card-ai4s::before  { background: linear-gradient(180deg, #7c3aed, #a78bfa); }
+    .card-agent::before { background: linear-gradient(180deg, #16a34a, #4ade80); }
+    .card-industry::before { background: linear-gradient(180deg, #b45309, #fbbf24); }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5;
+      color: #1a202c;
+      margin-bottom: 0.5rem;
+    }
+    .card-summary {
+      font-size: 0.875rem;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 0.75rem;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .tag-ai4s  { background: #ede9fe; color: #7c3aed; }
+    .tag-agent { background: #dcfce7; color: #16a34a; }
+    .tag-industry { background: #fef3c7; color: #b45309; }
+    .tag-drug   { background: #fce7f3; color: #db2777; }
+    .tag-robot  { background: #e0f2fe; color: #0369a1; }
+    .tag-memory { background: #f0fdf4; color: #15803d; }
+    .tag-weather { background: #ecfeff; color: #0e7490; }
+    .tag-material { background: #fdf4ff; color: #9333ea; }
+    .tag-research { background: #fff7ed; color: #c2410c; }
+
+    .read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.35rem 0.9rem;
+      background: #f8fafc;
+      color: #4a5568;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .read-btn:hover {
+      background: #eef2ff;
+      color: #6366f1;
+      border-color: #c7d2fe;
+    }
+
+    /* 章节标题 */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 0 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .section-icon-ai4s  { background: linear-gradient(135deg,#7c3aed,#a78bfa); }
+    .section-icon-agent { background: linear-gradient(135deg,#16a34a,#4ade80); }
+    .section-icon-industry { background: linear-gradient(135deg,#b45309,#fbbf24); }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #1a202c;
+    }
+    .section-count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #94a3b8;
+      background: #f1f5f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    /* 统计栏 */
+    .stats-bar {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .stats-bar::-webkit-scrollbar { display: none; }
+    .stat-item {
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 12px;
+      padding: 0.65rem 1rem;
+      text-align: center;
+    }
+    .stat-num { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.8); margin-top: 0.1rem; }
+
+    /* 底部 */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+    footer a { color: #6366f1; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* 延迟动画 */
+    .card:nth-child(1)  { animation-delay: 0.05s; }
+    .card:nth-child(2)  { animation-delay: 0.10s; }
+    .card:nth-child(3)  { animation-delay: 0.15s; }
+    .card:nth-child(4)  { animation-delay: 0.20s; }
+    .card:nth-child(5)  { animation-delay: 0.25s; }
+    .card:nth-child(6)  { animation-delay: 0.30s; }
+    .card:nth-child(7)  { animation-delay: 0.35s; }
+    .card:nth-child(8)  { animation-delay: 0.40s; }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="relative z-10 max-w-2xl mx-auto">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-white/70 text-sm font-medium">🗓 2026年4月2日 · 星期四</span>
+      <span class="bg-white/20 text-white text-xs px-2 py-0.5 rounded-full font-semibold">每日推送</span>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-3">
+      AI 科技情报日报
+      <span class="block text-lg sm:text-xl font-semibold text-white/80 mt-1">AI for Science · AI Agent</span>
+    </h1>
+    <!-- 统计 -->
+    <div class="stats-bar mt-4">
+      <div class="stat-item">
+        <div class="stat-num">8</div>
+        <div class="stat-label">精选新闻</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">AI4S 动态</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Agent 进展</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">信源来源</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 导航栏 ===== -->
+<nav class="nav-scroll" aria-label="分类导航">
+  <a href="#all"      class="nav-btn nav-all">🔍 全部</a>
+  <a href="#ai4s"     class="nav-btn nav-ai4s">🔬 AI for Science</a>
+  <a href="#agent"    class="nav-btn nav-agent">🤖 AI Agent</a>
+  <a href="#industry" class="nav-btn nav-industry">🏭 行业动态</a>
+</nav>
+
+<!-- ===== 主内容 ===== -->
+<main id="all" class="max-w-2xl mx-auto px-4 py-4 pb-8">
+
+  <!-- ======== AI for Science ======== -->
+  <section id="ai4s" class="mb-6">
+    <div class="section-header">
+      <div class="section-icon section-icon-ai4s">🔬</div>
+      <span class="section-title">AI for Science</span>
+      <span class="section-count">4 条</span>
+    </div>
+
+    <!-- 卡片 1 -->
+    <article class="card card-ai4s">
+      <h2 class="card-title">
+        Goodfire 自校正搜索：让扩散模型"边生成边纠错"，材料发现成功率提升 30%
+      </h2>
+      <p class="card-summary">
+        Goodfire Research 提出"自校正搜索（Self-Correcting Search）"技术：为扩散模型的每步去噪过程训练内部探针，实时预测生成物的目标属性（如带隙），并以 Metropolis-Adjusted Langevin 算法决定接受或拒绝当前步。应用于 MatterGen 后，目标带隙范围内且符合"稳定、独特、新颖"标准的候选材料数量较基线提升约 <strong>30%</strong>，同时彻底解决了传统条件生成中"靶向性-多样性"相互拉扯的难题。该技术同样适用于蛋白质设计、抗体生成等扩散模型场景。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-ai4s">AI4S</span>
+          <span class="tag tag-material">材料发现</span>
+        </div>
+        <a href="https://www.goodfire.ai/research/self-correcting-search" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 2 -->
+    <article class="card card-ai4s">
+      <h2 class="card-title">
+        Nature：《The AI Scientist》端到端自动化科研系统，AI 撰写的论文通过 ICLR Workshop 同行评审
+      </h2>
+      <p class="card-summary">
+        Chris Lu 等人在《Nature》发表研究，展示系统"The AI Scientist"：基于 LLM 自主完成<strong>想法生成 → 代码实验 → 论文撰写 → 自动评审</strong>全流程。在 ICLR 2025 "I Can't Believe It's Not Better" workshop 中，提交 3 篇 AI 生成论文，1 篇以 6.33/10 分通过（接受率约 70%）。核心技术包括树状搜索实验优化与视觉语言模型图表核查，开创了 AI 科研自动化的里程碑。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-ai4s">AI4S</span>
+          <span class="tag tag-research">自动科研</span>
+        </div>
+        <a href="https://www.nature.com/articles/s41586-026-10265-5" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 3 -->
+    <article class="card card-ai4s">
+      <h2 class="card-title">
+        首款 AI 设计小分子药物 Rentosertib 即将进入 III 期临床试验，靶向特发性肺纤维化
+      </h2>
+      <p class="card-summary">
+        英矽智能（InSilico Medicine）开发的 <strong>rentosertib（INS018_055）</strong>针对罕见靶点 TNIK，用于治疗特发性肺纤维化（IPF）。2025年6月完成71名患者的 IIa 期试验，安全性良好，即将启动 III 期。如成功，这将是<strong>首个由 AI 全程发现靶点并设计分子的药物</strong>完成最终临床验证，标志着 AI 驱动制药从概念走向监管现实。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-ai4s">AI4S</span>
+          <span class="tag tag-drug">药物研发</span>
+        </div>
+        <a href="https://www.chemistryworld.com/news/as-ai-designed-drug-looks-to-pass-final-hurdle-will-this-tech-change-drug-discovery-forever/4021894.article" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 4 -->
+    <article class="card card-ai4s">
+      <h2 class="card-title">
+        Google DeepMind 发布 WeatherNext 2：速度提升 8 倍，可提前 15 天预测台风路径
+      </h2>
+      <p class="card-summary">
+        WeatherNext 2 是 Google DeepMind 与 Google Research 合作发布的最新 AI 气象预报模型家族。与上代相比速度快 8 倍，可高精度预测风速、降水、气压等关键变量，每天生成 4 次预报。在实验性 Weather Lab 中，该模型已能提前 <strong>15 天</strong>预测气旋路径、强度与结构，对极端天气事件的预报能力大幅提升。目前已集成至 Google Search、Gemini 及 Pixel Weather，并通过 Cloud Vertex AI 对外开放。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-ai4s">AI4S</span>
+          <span class="tag tag-weather">气象大模型</span>
+        </div>
+        <a href="https://deepmind.google/science/weathernext/" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ======== AI Agent ======== -->
+  <section id="agent" class="mb-6">
+    <div class="section-header">
+      <div class="section-icon section-icon-agent">🤖</div>
+      <span class="section-title">AI Agent</span>
+      <span class="section-count">4 条</span>
+    </div>
+
+    <!-- 卡片 5 -->
+    <article class="card card-agent">
+      <h2 class="card-title">
+        Mem0 发布《AI Agent 记忆系统 2026 现状报告》：10 种方法横向对比，图记忆正式进入生产
+      </h2>
+      <p class="card-summary">
+        Mem0 工程团队基于 LOCOMO 基准（长对话记忆评测），横向对比 10 种记忆方案：全上下文准确率最高（72.9%）但 P95 延迟达 17 秒；Mem0 选择性记忆以 66.9% 准确率换来 <strong>延迟降低 91%、Token 消耗减少 90%</strong>；图增强方案 Mem0g 准确率 68.4%，适合复杂实体关系场景。报告还揭示四级作用域模型（user/agent/session/org）、多 Agent 记忆防混淆机制以及支持本地部署的隐私记忆方案 OpenMemory MCP，覆盖 21 种框架集成。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-agent">AI Agent</span>
+          <span class="tag tag-memory">Memory 系统</span>
+        </div>
+        <a href="https://mem0.ai/blog/state-of-ai-agent-memory-2026" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 6 -->
+    <article class="card card-agent">
+      <h2 class="card-title">
+        Nature Machine Intelligence：ROSLLM 开源框架，LLM 接管机器人全流程规划与技能学习
+      </h2>
+      <p class="card-summary">
+        华为诺亚方舟实验室在 Nature Machine Intelligence 发表 <strong>ROSLLM</strong>，将 LLM Agent 接入 ROS，实现自然语言指令 → 原子动作序列 → 物理执行的端到端流程。支持内联代码与行为树两种执行表示；通过模仿学习 + 贝叶斯优化（HEBO）持续精炼新技能；"冲咖啡"等长周期任务可被分解为 12 步原子动作并可靠执行。代码与数据完全开源，验证了开源 LLM 驱动具身智能的完整可行性。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-agent">AI Agent</span>
+          <span class="tag tag-robot">具身智能</span>
+        </div>
+        <a href="https://www.nature.com/articles/s42256-026-01186-z" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 7 -->
+    <article class="card card-agent">
+      <h2 class="card-title">
+        Dynin-Omni：首个基于掩码扩散的全模态基础模型，统一文本 / 图像 / 视频 / 语音理解与生成
+      </h2>
+      <p class="card-summary">
+        首尔大学 AIDAS 实验室发布 <strong>Dynin-Omni</strong>（arXiv 2604.00007），8B 参数规模，采用掩码扩散范式在单一模型中统一处理文本、图像、视频和语音的理解与生成，打破传统自回归模型在多模态生成上的瓶颈。模型权重已在 HuggingFace 开源（snu-aidas/Dynin-Omni），代码仓库同步公开，标志着"一套扩散架构搞定全模态"的技术路线迈入可复现阶段。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-agent">AI Agent</span>
+          <span class="tag tag-memory">多模态</span>
+        </div>
+        <a href="https://arxiv.org/abs/2604.00007" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+
+    <!-- 卡片 8 (行业/Agent) -->
+    <article class="card card-agent">
+      <h2 class="card-title">
+        ODSC 盘点 2026 年十大 Agent 核心技能：从浏览器自动化到系统性调试的完整技能图谱
+      </h2>
+      <p class="card-summary">
+        Open Data Science 发布 2026 年度 Agent 技能图谱，覆盖生产环境中最关键的 10 类能力：<strong>技能发现（find-skills）、浏览器自动化（agent-browser）、系统性调试（systematic-debugging）、代码审查派遣（requesting-code-review）</strong>等。每类技能以模块化"技能包"形式存在，可通过 `npx skills add` 一键装备，标志着 Agent 能力工程走向标准化、可组合的工具生态。
+      </p>
+      <div class="card-footer">
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag tag-agent">AI Agent</span>
+          <span class="tag tag-research">技能工程</span>
+        </div>
+        <a href="https://opendatascience.com/the-ten-best-agent-skills-to-teach-your-ai-agent-in-2026/" target="_blank" rel="noopener" class="read-btn">
+          原文 →
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ======== 行业动态 ======== -->
+  <section id="industry" class="mb-2">
+    <div class="section-header">
+      <div class="section-icon section-icon-industry">🏭</div>
+      <span class="section-title">行业动态</span>
+      <span class="section-count">速览</span>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <ul class="divide-y divide-gray-50">
+        <li class="p-4 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="text-lg mt-0.5">🤝</span>
+            <div>
+              <p class="text-sm font-700 text-gray-800 font-semibold">
+                <a href="https://bostondynamics.com/blog/boston-dynamics-google-deepmind-form-new-ai-partnership/" target="_blank" rel="noopener" class="hover:text-indigo-600 transition-colors">
+                  波士顿动力 × Google DeepMind 深度合作：Atlas 机器人搭载 Gemini Robotics
+                </a>
+              </p>
+              <p class="text-xs text-gray-500 mt-0.5">CES 2026 宣布的 AI 机器人史诗级联姻，将竞技智能与基础模型能力融合</p>
+            </div>
+          </div>
+        </li>
+        <li class="p-4 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="text-lg mt-0.5">💊</span>
+            <div>
+              <p class="text-sm font-700 text-gray-800 font-semibold">
+                <a href="https://biomednexus.com/ai-drug-discovery-companies-clinical-candidates-2026/" target="_blank" rel="noopener" class="hover:text-indigo-600 transition-colors">
+                  25 家 AI 制药公司 2026 临床管线更新：Phase II/III 数据亮眼，大药厂加速入局
+                </a>
+              </p>
+              <p class="text-xs text-gray-500 mt-0.5">AI 药物研发从"演示阶段"进入"临床验证阶段"，行业格局加速整合</p>
+            </div>
+          </div>
+        </li>
+        <li class="p-4 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="text-lg mt-0.5">🔐</span>
+            <div>
+              <p class="text-sm font-700 text-gray-800 font-semibold">
+                <a href="https://www.humai.blog/ai-news-trends-april-2026-complete-monthly-digest/" target="_blank" rel="noopener" class="hover:text-indigo-600 transition-colors">
+                  Anthropic 遭遇 Claude Agent 源代码泄露事件，AI 模型安全引发业界高度关注
+                </a>
+              </p>
+              <p class="text-xs text-gray-500 mt-0.5">AI 公司知识产权与模型安全保护成为 2026 年新焦点，监管框架亟待完善</p>
+            </div>
+          </div>
+        </li>
+        <li class="p-4 hover:bg-gray-50 transition-colors">
+          <div class="flex items-start gap-3">
+            <span class="text-lg mt-0.5">🤖</span>
+            <div>
+              <p class="text-sm font-700 text-gray-800 font-semibold">
+                <a href="https://www.theborneopost.com/2026/04/01/humanoid-robots-steal-spotlight-at-boao-forum-poised-for-breakthrough/" target="_blank" rel="noopener" class="hover:text-indigo-600 transition-colors">
+                  博鳌亚洲论坛 2026：人形机器人抢尽风头，具身智能产业化加速
+                </a>
+              </p>
+              <p class="text-xs text-gray-500 mt-0.5">政商学界高度关注，人形机器人被列为战略新兴产业的核心赛道</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== 底部 ===== -->
+<footer>
+  <p>🤖 由 AI 情报官自动生成 · <a href="https://Maijie-Zheng.github.io/ai-daily/" target="_blank" rel="noopener">查看历史日报</a></p>
+  <p class="mt-1">信源：arXiv · Nature · Google DeepMind · Mem0 · Goodfire Research · Chemistry World · ODSC</p>
+  <p class="mt-1 text-gray-300">© 2026 AI Daily · 每日 07:00 自动推送</p>
+</footer>
+
+</body>
+</html>
